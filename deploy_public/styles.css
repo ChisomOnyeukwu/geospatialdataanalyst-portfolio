@@ -611,6 +611,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .contact-inner { max-width: 560px; margin: 0 auto; }
 .contact-inner h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -.03em; margin-bottom: 16px; }
 .contact-inner p { font-size: clamp(.9rem, 1.5vw, 1.05rem); color: var(--text-2); margin-bottom: 32px; line-height: 1.7; }
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.materials-note {
+  margin: 16px auto 0 !important;
+  max-width: 430px;
+  color: var(--text-3) !important;
+  font-size: .82rem !important;
+}
 
 /* ─── FOOTER ─── */
 .footer {
@@ -892,6 +904,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 480px) {
   .hero-h1 { font-size: clamp(2.08rem, 12vw, 3.15rem); line-height: .94; }
   .hero-cta { flex-direction: column; align-items: stretch; width: min(100%, 320px); margin-inline: auto; }
+  .contact-actions { flex-direction: column; align-items: stretch; width: min(100%, 320px); margin-inline: auto; }
   .btn { width: 100%; justify-content: center; padding: 12px 18px; font-size: .88rem; }
   .section-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
   .section-sub { font-size: .9rem; }
