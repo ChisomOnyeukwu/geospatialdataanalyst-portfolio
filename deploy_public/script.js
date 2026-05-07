@@ -141,26 +141,6 @@ const revealObserver = new IntersectionObserver(entries => {
 
 qsa('.reveal').forEach(el => revealObserver.observe(el));
 
-// Cinematic hero light follows the pointer subtly on desktop
-const heroTitle = qs('.hero-h1');
-heroTitle?.addEventListener('pointerenter', () => {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  heroTitle.classList.add('hero-awake');
-});
-heroTitle?.addEventListener('pointermove', e => {
-  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-  const rect = heroTitle.getBoundingClientRect();
-  const x = ((e.clientX - rect.left) / rect.width) * 100;
-  const y = ((e.clientY - rect.top) / rect.height) * 100;
-  heroTitle.style.setProperty('--hero-light-x', `${x}%`);
-  heroTitle.style.setProperty('--hero-light-y', `${y}%`);
-});
-heroTitle?.addEventListener('pointerleave', () => {
-  heroTitle.classList.remove('hero-awake');
-  heroTitle.style.setProperty('--hero-light-x', '50%');
-  heroTitle.style.setProperty('--hero-light-y', '50%');
-});
-
 // ─── PROJECT CARDS ───────────────────────────────────
 const grid = qs('#cardsGrid');
 
