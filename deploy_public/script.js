@@ -14,20 +14,44 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const html    = document.documentElement;
   const btn     = qs('#themeBtn');
   const STORAGE = 'cv-theme';
+  const media   = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function applyTheme(t) {
+  function applyTheme(t, persist = true) {
     html.setAttribute('data-theme', t);
-    localStorage.setItem(STORAGE, t);
+    if (persist) localStorage.setItem(STORAGE, t);
   }
 
   // On load: check saved preference, then system preference
   const saved  = localStorage.getItem(STORAGE);
-  const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(saved || (sysDark ? 'dark' : 'light'));
+  const systemTheme = () => media.matches ? 'dark' : 'light';
+  applyTheme(saved || systemTheme(), Boolean(saved));
 
   btn?.addEventListener('click', () => {
     const current = html.getAttribute('data-theme');
     applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let previewTheme = null;
+    btn?.addEventListener('pointerenter', () => {
+      previewTheme = html.getAttribute('data-theme');
+      applyTheme(previewTheme === 'dark' ? 'light' : 'dark', false);
+      btn.classList.add('theme-previewing');
+    });
+    btn?.addEventListener('pointerleave', () => {
+      if (previewTheme) applyTheme(previewTheme, false);
+      previewTheme = null;
+      btn.classList.remove('theme-previewing');
+    });
+  }
+
+  btn?.addEventListener('dblclick', () => {
+    localStorage.removeItem(STORAGE);
+    applyTheme(systemTheme(), false);
+  });
+
+  media.addEventListener?.('change', () => {
+    if (!localStorage.getItem(STORAGE)) applyTheme(systemTheme(), false);
   });
 })();
 
@@ -116,6 +140,26 @@ const revealObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
 qsa('.reveal').forEach(el => revealObserver.observe(el));
+
+// Cinematic hero light follows the pointer subtly on desktop
+const heroTitle = qs('.hero-h1');
+heroTitle?.addEventListener('pointerenter', () => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  heroTitle.classList.add('hero-awake');
+});
+heroTitle?.addEventListener('pointermove', e => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const rect = heroTitle.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width) * 100;
+  const y = ((e.clientY - rect.top) / rect.height) * 100;
+  heroTitle.style.setProperty('--hero-light-x', `${x}%`);
+  heroTitle.style.setProperty('--hero-light-y', `${y}%`);
+});
+heroTitle?.addEventListener('pointerleave', () => {
+  heroTitle.classList.remove('hero-awake');
+  heroTitle.style.setProperty('--hero-light-x', '50%');
+  heroTitle.style.setProperty('--hero-light-y', '50%');
+});
 
 // ─── PROJECT CARDS ───────────────────────────────────
 const grid = qs('#cardsGrid');
