@@ -8,16 +8,6 @@
 // ─── UTILS ───────────────────────────────────────────
 const qs  = (sel, ctx = document) => ctx.querySelector(sel);
 const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-const FALLBACK_IMAGE = 'assets/visuals/behance_preview_card.png';
-
-function handleImageError(img, fallback = FALLBACK_IMAGE) {
-  if (!img || img.dataset.fallbackApplied === 'true') return;
-  img.dataset.fallbackApplied = 'true';
-  img.src = fallback;
-  img.alt = img.alt || 'Portfolio preview';
-  img.classList.add('img-fallback');
-}
-window.handleImageError = handleImageError;
 
 // ─── THEME TOGGLE ────────────────────────────────────
 (function initTheme() {
@@ -138,7 +128,7 @@ function renderCards(filter) {
   grid.innerHTML = list.map(p => `
     <article class="project-card" data-id="${p.id}" tabindex="0" role="button" aria-label="Open ${p.title}">
       <img class="card-img" src="${p.thumb}" alt="${p.title}" loading="lazy"
-           onerror="handleImageError(this)"/>
+           onerror="this.src='assets/visuals/behance_preview_card.png'"/>
       <div class="card-body">
         <span class="card-cat">${p.cat}</span>
         <h3 class="card-title">${p.title}</h3>
@@ -197,7 +187,7 @@ function openModal(id) {
 
   // Gallery (all visuals after the first)
   const galleryImgs = p.visuals.length > 1
-    ? p.visuals.map((v, i) => `<img class="m-grid-img" src="${v}" alt="${p.title} visual ${i+1}" data-idx="${i}" loading="lazy" onerror="handleImageError(this, '${p.thumb || FALLBACK_IMAGE}')"/>`).join('')
+    ? p.visuals.map((v, i) => `<img class="m-grid-img" src="${v}" alt="${p.title} visual ${i+1}" data-idx="${i}" loading="lazy" onerror="this.style.display='none'"/>`).join('')
     : '';
 
   modalContent.innerHTML = `
@@ -216,7 +206,7 @@ function openModal(id) {
         <ul class="m-highlights">${(p.highlights || []).map(h => `<li>${h}</li>`).join('')}</ul>
       </div>
       <div class="m-visual">
-        <img class="m-hero-img" src="${p.visuals[0] || p.thumb || FALLBACK_IMAGE}" alt="${p.title}" loading="lazy" onerror="handleImageError(this, '${p.thumb || FALLBACK_IMAGE}')"/>
+        <img class="m-hero-img" src="${p.visuals[0]}" alt="${p.title}" loading="lazy" onerror="this.style.display='none'"/>
       </div>
     </div>
 
@@ -270,7 +260,6 @@ let galleryIndex = 0;
 const viewerImg   = qs('#viewerImg');
 const viewerCount = qs('#viewerCount');
 const viewerStrip = qs('#viewerStrip');
-viewerImg?.addEventListener('error', () => handleImageError(viewerImg));
 
 function getGallery() { return (window.GALLERIES || {})[galleryKey] || []; }
 
@@ -373,19 +362,10 @@ function closeLb() {
 function setLbSlide() {
   if (!lbImg || !lbImages.length) return;
   lbImg.style.opacity = '0';
-  lbImg.style.transform = 'scale(.965)';
   const src = lbImages[lbIndex];
   const tmp = new Image();
-  tmp.onload = () => {
-    lbImg.src = src;
-    lbImg.style.opacity = '1';
-    lbImg.style.transform = 'scale(1)';
-  };
-  tmp.onerror = () => {
-    lbImg.src = FALLBACK_IMAGE;
-    lbImg.style.opacity = '1';
-    lbImg.style.transform = 'scale(1)';
-  };
+  tmp.onload = () => { lbImg.src = src; lbImg.style.opacity = '1'; };
+  tmp.onerror = () => { lbImg.src = src; lbImg.style.opacity = '1'; };
   tmp.src = src;
   if (lbCounter) lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
   // Hide nav if only one image
