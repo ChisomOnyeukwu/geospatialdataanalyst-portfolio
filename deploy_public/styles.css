@@ -385,8 +385,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   pointer-events: none;
 }
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow);
+  transform: translateY(-10px) scale(1.012);
+  box-shadow: var(--shadow), 0 0 0 1px color-mix(in srgb, var(--accent) 24%, transparent), 0 24px 80px rgba(191,90,242,.18);
   border-color: var(--border-h);
 }
 .project-card:hover::after { opacity: 1; transform: translateX(45%); }
@@ -398,6 +398,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: transform .55s cubic-bezier(.2,.8,.2,1), filter .35s ease;
 }
 .project-card:hover .card-img { transform: scale(1.045); filter: saturate(1.08) contrast(1.04); }
+.img-fallback {
+  background:
+    radial-gradient(circle at 25% 15%, rgba(191,90,242,.22), transparent 38%),
+    linear-gradient(135deg, var(--bg-3), var(--bg-2));
+}
 .card-body { padding: 18px 20px 22px; }
 .card-cat {
   font-family: var(--f-mono); font-size: .65rem; font-weight: 500;
@@ -603,8 +608,51 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .behance-meta h3 { font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -.02em; color: var(--text-1); margin-bottom: 10px; }
 .behance-meta p  { font-size: .9rem; color: var(--text-2); line-height: 1.6; max-width: 360px; }
-.behance-embed { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); flex-shrink: 0; }
-.behance-embed iframe { display: block; }
+.behance-preview {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--glass-glow);
+  min-width: min(404px, 100%);
+  isolation: isolate;
+}
+.behance-preview img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg-3);
+  transition: transform .45s cubic-bezier(.2,.8,.2,1), filter .3s ease;
+}
+.behance-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.64), transparent 55%);
+  z-index: 1;
+}
+.behance-preview span {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  font-size: .86rem;
+  font-weight: 700;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.behance-preview:hover img { transform: scale(1.055); filter: saturate(1.08) contrast(1.03); }
 
 /* ─── CONTACT ─── */
 .contact-section { text-align: center; }
@@ -732,10 +780,17 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 20px;
 }
 .lb.open { display: flex; }
+.lb.open .lb-img-wrap { animation: lightboxIn .32s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes lightboxIn {
+  from { opacity: 0; transform: translateY(12px) scale(.975); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
 .lb-backdrop {
   position: absolute; inset: 0;
-  background: var(--lb-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background:
+    radial-gradient(circle at 50% 18%, rgba(191,90,242,.18), transparent 34%),
+    var(--lb-bg);
+  backdrop-filter: blur(24px) saturate(1.1); -webkit-backdrop-filter: blur(24px) saturate(1.1);
 }
 .lb-close {
   position: absolute; top: 20px; right: 20px; z-index: 2;
@@ -754,7 +809,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   max-width: 100%; max-height: 88dvh;
   border-radius: 12px; object-fit: contain;
   box-shadow: 0 32px 100px rgba(0,0,0,0.8);
-  transition: opacity 0.18s;
+  transition: opacity 0.18s, transform .24s cubic-bezier(.2,.8,.2,1);
 }
 .lb-nav {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
@@ -826,8 +881,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .bg-grid { grid-template-columns: 1fr; gap: 32px; }
   .behance-row { grid-template-columns: 1fr; }
-  .behance-embed { display: flex; justify-content: flex-start; }
-  .behance-embed iframe { max-width: 100%; }
+  .behance-preview { width: min(100%, 520px); }
   .m-body { grid-template-columns: 1fr; }
   .viewer-main { grid-template-columns: 44px 1fr 44px; }
   .hero { min-height: 100svh; }
@@ -880,7 +934,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .m-grid { grid-template-columns: repeat(2,1fr); gap: 6px; }
   .m-actions { padding: 0 18px 18px; }
   .behance-row { padding: 20px; }
-  .behance-embed iframe { width: 100% !important; height: auto !important; }
+  .behance-preview { width: 100%; }
   .bg-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
   .tl-item { grid-template-columns: 10px 1fr; gap: 12px; }
   .footer .container { flex-direction: column; text-align: center; }
@@ -898,7 +952,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .card-img { aspect-ratio: 4/3; }
   .m-grid { grid-template-columns: 1fr; }
   .m-title { font-size: 1.4rem; }
-  .behance-embed iframe { width: 100% !important; min-height: 180px !important; }
+  .behance-preview span { left: 10px; right: 10px; font-size: .8rem; }
   .lb-nav { display: none; }
   .lb-img-wrap { max-width: 100%; }
   .mobile-dock {
