@@ -105,6 +105,7 @@ document.addEventListener('click', e => {
     e.preventDefault();
     const offset = 60;
     const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    setActiveSection(target.id);
     window.scrollTo({ top, behavior: 'smooth' });
   }
 });
