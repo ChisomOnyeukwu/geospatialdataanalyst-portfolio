@@ -19,6 +19,17 @@
       --green: #35f2a5;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #fbf8ff;
+      --panel: rgba(87,48,122,.075);
+      --panel-strong: rgba(255,255,255,.82);
+      --border: rgba(87,48,122,.18);
+      --text: #1b1028;
+      --muted: rgba(48,34,64,.72);
+      --accent: #7c3aed;
+      --green: #047857;
+    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -28,6 +39,12 @@
         radial-gradient(circle at 15% 12%, rgba(191,90,242,.28), transparent 30rem),
         radial-gradient(circle at 82% 10%, rgba(53,242,165,.14), transparent 24rem),
         linear-gradient(135deg, #08040d, #1d0d2c 58%, #09050f);
+    }
+    [data-theme="light"] body {
+      background:
+        radial-gradient(circle at 15% 12%, rgba(191,90,242,.16), transparent 30rem),
+        radial-gradient(circle at 82% 10%, rgba(53,242,165,.16), transparent 24rem),
+        linear-gradient(135deg, #fbf8ff, #efe5ff 58%, #f8f3ff);
     }
     main {
       width: min(980px, calc(100% - 32px));
@@ -69,6 +86,56 @@
       background: rgba(255,255,255,.05);
       font-size: .92rem;
     }
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .theme-btn {
+      position: relative;
+      overflow: hidden;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--panel);
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .theme-btn::before {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(53,242,165,.28), transparent 62%);
+      opacity: 0;
+      transform: scale(.55);
+      transition: opacity .28s ease, transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .theme-btn:hover,
+    .theme-btn.theme-previewing {
+      transform: rotate(12deg) scale(1.06);
+      border-color: var(--green);
+      box-shadow: 0 0 24px rgba(53,242,165,.22);
+    }
+    .theme-btn:hover::before,
+    .theme-btn.theme-previewing::before { opacity: 1; transform: scale(1); }
+    .theme-btn svg { position: relative; z-index: 1; transition: filter .25s ease, transform .25s ease; }
+    [data-theme="dark"] .icon-sun { display: none; }
+    [data-theme="dark"] .icon-moon { display: block; filter: drop-shadow(0 0 8px rgba(167,139,250,.62)); }
+    [data-theme="light"] .icon-moon { display: none; }
+    [data-theme="light"] .icon-sun { display: block; filter: drop-shadow(0 0 9px rgba(250,204,21,.72)); }
+    [data-theme="light"] .theme-btn.theme-just-applied {
+      box-shadow: 0 0 0 4px rgba(250,204,21,.16), 0 0 30px rgba(250,204,21,.45), inset 0 0 18px rgba(255,255,255,.34);
+    }
+    [data-theme="dark"] .theme-btn.theme-just-applied {
+      box-shadow: 0 0 0 4px rgba(167,139,250,.14), 0 0 30px rgba(167,139,250,.36), inset 0 0 18px rgba(255,255,255,.08);
+    }
+    .theme-btn.theme-just-applied svg { transform: scale(1.12); }
     .eyebrow {
       color: var(--green);
       letter-spacing: .18em;
@@ -186,7 +253,13 @@
         <span class="mark">C</span>
         <span>Chisom Victor Onyeukwu</span>
       </a>
-      <a class="back" href="../index.html">Back to portfolio</a>
+      <div class="top-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+          <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a class="back" href="../index.html">Back to portfolio</a>
+      </div>
     </nav>
 
     <section>
@@ -194,7 +267,7 @@
       <h1>Share the full application packet.</h1>
       <p class="intro">
         Use this page to open the company-specific application packet, copy the packet link,
-        or download the resume and cover letter together as a zip file for forwarding.
+        or request a different tailored package for another role or company.
       </p>
     </section>
 
@@ -211,7 +284,6 @@
 
       <div class="actions">
         <a class="btn primary" href="../applications/kcb/">Open Packet Page</a>
-        <a class="btn" href="../applications/kcb/downloads/chisom-onyeukwu-kcb-application-package.zip" download>Download Package ZIP</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -222,11 +294,7 @@
           <p>Copy the packet link when someone needs a browser-friendly view of the application documents.</p>
         </div>
         <div class="step">
-          <strong>2. Download</strong>
-          <p>Download the zip when the resume and cover letter need to be forwarded as files.</p>
-        </div>
-        <div class="step">
-          <strong>3. Portfolio</strong>
+          <strong>2. Portfolio</strong>
           <p>The packet page includes a direct route back to the full portfolio for deeper project evidence.</p>
         </div>
       </div>
@@ -234,6 +302,44 @@
   </main>
 
   <script>
+    (function initTheme() {
+      const html = document.documentElement;
+      const btn = document.getElementById('themeBtn');
+      const STORAGE = 'cv-theme';
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      const systemTheme = () => media.matches ? 'dark' : 'light';
+      let previewTheme = null;
+      function applyTheme(theme, persist = true) {
+        html.setAttribute('data-theme', theme);
+        if (persist) localStorage.setItem(STORAGE, theme);
+      }
+      applyTheme(localStorage.getItem(STORAGE) || systemTheme(), Boolean(localStorage.getItem(STORAGE)));
+      btn?.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        applyTheme(previewTheme ? current : (current === 'dark' ? 'light' : 'dark'));
+        previewTheme = null;
+        btn.classList.remove('theme-previewing');
+        btn.classList.add('theme-just-applied');
+        window.setTimeout(() => btn.classList.remove('theme-just-applied'), 850);
+      });
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        btn?.addEventListener('pointerenter', () => {
+          if (previewTheme) return;
+          previewTheme = html.getAttribute('data-theme');
+          applyTheme(previewTheme === 'dark' ? 'light' : 'dark', false);
+          btn.classList.add('theme-previewing');
+        });
+        btn?.addEventListener('pointerleave', () => {
+          if (previewTheme) applyTheme(previewTheme, false);
+          previewTheme = null;
+          btn.classList.remove('theme-previewing');
+        });
+      }
+      media.addEventListener?.('change', () => {
+        if (!localStorage.getItem(STORAGE)) applyTheme(systemTheme(), false);
+      });
+    })();
+
     const packetPath = '/applications/kcb/';
     const packetUrl = new URL(packetPath, window.location.origin).href;
     const linkEl = document.getElementById('packetLink');
