@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "deploy_public"
 
 [[headers]]
   for = "/*"
