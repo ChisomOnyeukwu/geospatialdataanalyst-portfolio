@@ -32,6 +32,8 @@ const qsa = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
     applyTheme(previewTheme ? current : (current === 'dark' ? 'light' : 'dark'));
     previewTheme = null;
     btn.classList.remove('theme-previewing');
+    btn.classList.add('theme-just-applied');
+    window.setTimeout(() => btn.classList.remove('theme-just-applied'), 850);
   });
 
   if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
