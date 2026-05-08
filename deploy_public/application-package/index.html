@@ -283,7 +283,7 @@
       </div>
 
       <div class="actions">
-        <a class="btn primary" id="openPacketBtn" href="../applications/onterris/">Open Onterris Packet</a>
+        <a class="btn primary" id="openPacketBtn" href="../applications/stantec/">Open Stantec Packet</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -352,10 +352,16 @@
         title: 'Onterris application packet',
         path: '/applications/onterris/',
         openHref: '../applications/onterris/'
+      },
+      stantec: {
+        label: 'Stantec Packet',
+        title: 'Stantec application packet',
+        path: '/applications/stantec/',
+        openHref: '../applications/stantec/'
       }
     };
     const requestedPacket = new URLSearchParams(window.location.search).get('packet');
-    const activePacket = packets[requestedPacket] || packets.onterris;
+    const activePacket = packets[requestedPacket] || packets.stantec;
     let packetPath = activePacket.path;
     const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
