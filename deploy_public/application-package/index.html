@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <meta name="color-scheme" content="dark light"/>
+  <title>Application Package - Chisom Victor Onyeukwu</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #08040d;
+      --panel: rgba(255,255,255,.075);
+      --panel-strong: rgba(255,255,255,.12);
+      --border: rgba(255,255,255,.16);
+      --text: #fbf7ff;
+      --muted: rgba(251,247,255,.72);
+      --accent: #bf5af2;
+      --green: #35f2a5;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 12%, rgba(191,90,242,.28), transparent 30rem),
+        radial-gradient(circle at 82% 10%, rgba(53,242,165,.14), transparent 24rem),
+        linear-gradient(135deg, #08040d, #1d0d2c 58%, #09050f);
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(28px, 6vw, 72px) 0;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: clamp(36px, 6vw, 72px);
+    }
+    .brand,
+    .back {
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+    .mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      box-shadow: 0 14px 40px rgba(191,90,242,.28);
+    }
+    .back {
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.05);
+      font-size: .92rem;
+    }
+    .eyebrow {
+      color: var(--green);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .74rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 7vw, 5.2rem);
+      line-height: .96;
+      letter-spacing: 0;
+      max-width: 850px;
+    }
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      line-height: 1.75;
+      margin: 20px 0 34px;
+    }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--panel-strong), rgba(255,255,255,.045));
+      box-shadow: 0 26px 80px rgba(0,0,0,.36);
+      padding: clamp(20px, 4vw, 34px);
+    }
+    .link-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(0,0,0,.22);
+      padding: 12px;
+      margin: 18px 0 20px;
+    }
+    code {
+      color: rgba(251,247,255,.88);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: .95rem;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      min-height: 44px;
+      padding: 12px 18px;
+      background: var(--panel);
+      color: #fff;
+      text-decoration: none;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .step {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,.05);
+      padding: 18px;
+    }
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--green);
+    }
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .95rem;
+    }
+    .status {
+      min-height: 22px;
+      color: var(--green);
+      font-weight: 800;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px) {
+      .topbar { flex-direction: column; align-items: flex-start; }
+      .link-box { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      code { white-space: normal; word-break: break-all; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="topbar" aria-label="Application package navigation">
+      <a class="brand" href="../index.html">
+        <span class="mark">C</span>
+        <span>Chisom Victor Onyeukwu</span>
+      </a>
+      <a class="back" href="../index.html">Back to portfolio</a>
+    </nav>
+
+    <section>
+      <div class="eyebrow">Application Package</div>
+      <h1>Share the full application packet.</h1>
+      <p class="intro">
+        Use this page to open the company-specific application packet, copy the packet link,
+        or download the resume and cover letter together as a zip file for forwarding.
+      </p>
+    </section>
+
+    <section class="panel" aria-label="Application package sharing tools">
+      <h2>Current packet: KCB Junior GIS Analyst</h2>
+      <p class="intro" style="margin-bottom:0">
+        This packet contains the locked KCB-specific resume and cover letter, plus a link back to the full portfolio.
+      </p>
+
+      <div class="link-box">
+        <code id="packetLink">/applications/kcb/</code>
+        <button class="btn" id="copyBtn" type="button">Copy Link</button>
+      </div>
+
+      <div class="actions">
+        <a class="btn primary" href="../applications/kcb/">Open Packet Page</a>
+        <a class="btn" href="../applications/kcb/downloads/chisom-onyeukwu-kcb-application-package.zip" download>Download Package ZIP</a>
+        <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
+      </div>
+      <div class="status" id="copyStatus" aria-live="polite"></div>
+
+      <div class="steps" aria-label="How to share">
+        <div class="step">
+          <strong>1. Copy</strong>
+          <p>Copy the packet link when someone needs a browser-friendly view of the application documents.</p>
+        </div>
+        <div class="step">
+          <strong>2. Download</strong>
+          <p>Download the zip when the resume and cover letter need to be forwarded as files.</p>
+        </div>
+        <div class="step">
+          <strong>3. Portfolio</strong>
+          <p>The packet page includes a direct route back to the full portfolio for deeper project evidence.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const packetPath = '/applications/kcb/';
+    const packetUrl = new URL(packetPath, window.location.origin).href;
+    const linkEl = document.getElementById('packetLink');
+    const statusEl = document.getElementById('copyStatus');
+    const copyBtn = document.getElementById('copyBtn');
+
+    linkEl.textContent = packetUrl;
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(packetUrl);
+        statusEl.textContent = 'Packet link copied.';
+      } catch (error) {
+        statusEl.textContent = 'Copy failed. Select and copy the link manually.';
+      }
+    });
+  </script>
+</body>
+</html>
