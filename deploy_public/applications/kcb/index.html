@@ -124,7 +124,6 @@
       border-radius: 18px;
       background: linear-gradient(135deg, var(--panel-strong), rgba(255,255,255,.045));
       overflow: hidden;
-      min-height: 640px;
       box-shadow: 0 26px 80px rgba(0,0,0,.35);
     }
     .doc-head {
@@ -146,11 +145,17 @@
       font-weight: 700;
       white-space: nowrap;
     }
-    iframe {
+    .thumb-link {
       display: block;
       width: 100%;
-      height: 720px;
-      border: 0;
+      background: rgba(255,255,255,.06);
+    }
+    .doc img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 900 / 1165;
+      object-fit: cover;
       background: #fff;
     }
     footer {
@@ -162,8 +167,6 @@
     @media (max-width: 820px) {
       .topbar { align-items: flex-start; flex-direction: column; }
       .grid { grid-template-columns: 1fr; }
-      .doc { min-height: 520px; }
-      iframe { height: 620px; }
     }
   </style>
 </head>
@@ -197,14 +200,18 @@
           <h2>Resume</h2>
           <a href="files/chisom-onyeukwu-resume-kcb-junior-gis-analyst.pdf" target="_blank" rel="noreferrer">Open</a>
         </div>
-        <iframe title="KCB resume preview" src="files/chisom-onyeukwu-resume-kcb-junior-gis-analyst.pdf"></iframe>
+        <a class="thumb-link" href="files/chisom-onyeukwu-resume-kcb-junior-gis-analyst.pdf" target="_blank" rel="noreferrer" aria-label="Open KCB resume PDF">
+          <img src="files/resume-kcb-thumbnail.png" alt="Preview thumbnail for Chisom Onyeukwu's KCB resume"/>
+        </a>
       </article>
       <article class="doc">
         <div class="doc-head">
           <h2>Cover Letter</h2>
           <a href="files/chisom-onyeukwu-cover-letter-kcb-junior-gis-analyst.pdf" target="_blank" rel="noreferrer">Open</a>
         </div>
-        <iframe title="KCB cover letter preview" src="files/chisom-onyeukwu-cover-letter-kcb-junior-gis-analyst.pdf"></iframe>
+        <a class="thumb-link" href="files/chisom-onyeukwu-cover-letter-kcb-junior-gis-analyst.pdf" target="_blank" rel="noreferrer" aria-label="Open KCB cover letter PDF">
+          <img src="files/cover-letter-kcb-thumbnail.png" alt="Preview thumbnail for Chisom Onyeukwu's KCB cover letter"/>
+        </a>
       </article>
     </section>
 
