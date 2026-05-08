@@ -264,28 +264,26 @@
 
     <section>
       <div class="eyebrow">Application Package</div>
-      <h1>Share the full application packet.</h1>
+      <h1>Share the current application packet.</h1>
       <p class="intro">
-        Use this page to open the company-specific application packet, copy the packet link,
-        or request a different tailored package for another role or company.
+        Use this page to open or copy the active company-specific packet. If another
+        tailored package is needed, request it directly by email.
       </p>
     </section>
 
     <section class="panel" aria-label="Application package sharing tools">
-      <h2>Available company packets</h2>
+      <h2 id="packetTitle">Current packet</h2>
       <p class="intro" style="margin-bottom:0">
-        Choose the company-specific packet you want to share. Each packet contains its own locked resume and cover letter.
+        This packet contains its own locked resume and cover letter for the selected company.
       </p>
 
       <div class="link-box">
-        <code id="packetLink">/applications/kcb/</code>
-        <button class="btn" id="copyBtn" type="button">Copy Selected Link</button>
+        <code id="packetLink">/applications/onterris/</code>
+        <button class="btn" id="copyBtn" type="button">Copy Packet Link</button>
       </div>
 
       <div class="actions">
-        <button class="btn primary packet-choice" type="button" data-packet="/applications/kcb/" data-open="../applications/kcb/">KCB Packet</button>
-        <button class="btn packet-choice" type="button" data-packet="/applications/onterris/" data-open="../applications/onterris/">Onterris Packet</button>
-        <a class="btn" id="openPacketBtn" href="../applications/kcb/">Open Selected Packet</a>
+        <a class="btn primary" id="openPacketBtn" href="../applications/onterris/">Open Onterris Packet</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -342,25 +340,33 @@
       });
     })();
 
-    let packetPath = '/applications/kcb/';
+    const packets = {
+      kcb: {
+        label: 'KCB Packet',
+        title: 'KCB application packet',
+        path: '/applications/kcb/',
+        openHref: '../applications/kcb/'
+      },
+      onterris: {
+        label: 'Onterris Packet',
+        title: 'Onterris application packet',
+        path: '/applications/onterris/',
+        openHref: '../applications/onterris/'
+      }
+    };
+    const requestedPacket = new URLSearchParams(window.location.search).get('packet');
+    const activePacket = packets[requestedPacket] || packets.onterris;
+    let packetPath = activePacket.path;
+    const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
     const statusEl = document.getElementById('copyStatus');
     const copyBtn = document.getElementById('copyBtn');
     const openPacketBtn = document.getElementById('openPacketBtn');
-    const packetChoices = [...document.querySelectorAll('.packet-choice')];
 
-    function setPacket(path, openHref) {
-      packetPath = path;
-      linkEl.textContent = new URL(packetPath, window.location.origin).href;
-      openPacketBtn.href = openHref;
-      packetChoices.forEach(btn => btn.classList.toggle('primary', btn.dataset.packet === path));
-      statusEl.textContent = '';
-    }
-
-    setPacket(packetPath, '../applications/kcb/');
-    packetChoices.forEach(btn => {
-      btn.addEventListener('click', () => setPacket(btn.dataset.packet, btn.dataset.open));
-    });
+    titleEl.textContent = activePacket.title;
+    linkEl.textContent = new URL(packetPath, window.location.origin).href;
+    openPacketBtn.href = activePacket.openHref;
+    openPacketBtn.textContent = `Open ${activePacket.label}`;
 
     copyBtn.addEventListener('click', async () => {
       const packetUrl = new URL(packetPath, window.location.origin).href;
