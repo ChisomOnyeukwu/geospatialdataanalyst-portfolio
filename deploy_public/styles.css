@@ -375,9 +375,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.72; max-width: 600px; margin-bottom: 40px;
 }
 
-/* Reveal */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.8s cubic-bezier(.2,.8,.2,1); }
-.reveal.in { opacity: 1; transform: none; }
+/* Reveal: content remains visible if JavaScript fails */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.75s ease, transform 0.8s cubic-bezier(.2,.8,.2,1);
+}
+.js-reveal .reveal { opacity: 0; transform: translateY(22px); }
+.js-reveal .reveal.in { opacity: 1; transform: none; }
 
 /* ─── FILTER CHIPS ─── */
 .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px; }
