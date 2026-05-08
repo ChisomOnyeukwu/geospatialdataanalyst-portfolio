@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="color-scheme" content="dark light"/>
+  <meta name="theme-color" content="#0d0714"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-title" content="Chisom Portfolio"/>
+  <title>Chisom Victor Onyeukwu — Geospatial Data Analyst</title>
+  <meta name="description" content="Portfolio of Chisom Victor Onyeukwu — Geospatial Data Analyst & Creative Technologist. GIS, Python, PostGIS, spatial databases, technical documentation, and creative technology."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ─── AMBIENT ─── -->
+<div class="ambient" aria-hidden="true">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+</div>
+
+<!-- ─── NAV ─── -->
+<header class="nav-bar" id="navBar">
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="Home">
+      <span class="logo-mark">C</span>
+      <span class="logo-text">Chisom Victor</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" role="navigation">
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#background" class="nav-link">Background</a>
+      <a href="#creative" class="nav-link">Creative</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-end">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-tag reveal">Geomatics Engineering · University of Calgary</div>
+    <h1 class="hero-h1 reveal">
+      <span>Geospatial</span>
+      <span class="accent">Data Analyst</span>
+      <span>&amp; Creative</span>
+      <span class="accent">Technologist</span>
+    </h1>
+    <p class="hero-sub reveal">GIS · Python · PostGIS · Spatial Analysis · Creative Direction</p>
+    <div class="hero-cta reveal">
+      <a href="#work" class="btn btn-primary">View My Work</a>
+      <a href="https://www.behance.net/gallery/213741811/Graphic-Design-Portfolio" target="_blank" rel="noreferrer" class="btn btn-ghost">Behance Portfolio ↗</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span></span>
+  </div>
+
+    <a class="featured-atom-card reveal" href="#work" aria-label="Featured Calgary hotspot analysis">
+      <div class="atom" aria-hidden="true">
+        <span class="nucleus"></span>
+        <span class="ring ring-a"></span>
+        <span class="ring ring-b"></span>
+        <span class="ring ring-c"></span>
+        <span class="electron e1"></span>
+        <span class="electron e2"></span>
+        <span class="electron e3"></span>
+      </div>
+      <div>
+        <span class="atom-kicker">Featured</span>
+        <strong>Calgary Hotspot Analysis</strong>
+        <small>2017–2024 · KDE + spatial clustering</small>
+      </div>
+    </a>
+</section>
+
+<!-- ─── WORK ─── -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-label reveal">Featured projects</div>
+    <h2 class="section-title reveal">Case Studies</h2>
+    <p class="section-sub reveal">Click any project to explore methods, tools, visuals, and full reports.</p>
+
+    <div class="filter-row reveal" role="group" aria-label="Filter projects">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="gis">GIS</button>
+      <button class="chip" data-filter="python">Python</button>
+      <button class="chip" data-filter="data">Data</button>
+      <button class="chip" data-filter="creative">Creative</button>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid"></div>
+  </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-label reveal">Visual evidence</div>
+    <h2 class="section-title reveal">Gallery</h2>
+    <p class="section-sub reveal">Traffic analysis slides, map outputs, report results, and notebook snapshots. Click any image to expand.</p>
+
+    <div class="gallery-tabs reveal" role="tablist">
+      <button class="g-tab active" role="tab" aria-selected="true"  data-gallery="slides">Traffic Slides</button>
+      <button class="g-tab"        role="tab" aria-selected="false" data-gallery="maps">Maps &amp; Results</button>
+      <button class="g-tab"        role="tab" aria-selected="false" data-gallery="code">Code &amp; Outputs</button>
+    </div>
+
+    <div class="gallery-viewer reveal">
+      <div class="viewer-main">
+        <button class="viewer-arrow viewer-prev" id="viewPrev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="viewer-stage" id="viewerStage">
+          <img id="viewerImg" src="" alt="Gallery image" loading="lazy"/>
+          <button class="viewer-zoom" id="viewerZoom" aria-label="Fullscreen">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          </button>
+          <div class="viewer-count" id="viewerCount"></div>
+        </div>
+        <button class="viewer-arrow viewer-next" id="viewNext" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+      <div class="viewer-strip" id="viewerStrip"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BACKGROUND ─── -->
+<section class="section" id="background">
+  <div class="container">
+    <div class="section-label reveal">Background</div>
+    <h2 class="section-title reveal">Academic &amp; Professional</h2>
+    <div class="ai-skill-cloud reveal">
+      <span>AI-assisted research</span>
+      <span>Prompt engineering</span>
+      <span>Python debugging</span>
+      <span>GIS documentation</span>
+      <span>Design ideation</span>
+      <span>Technical writing refinement</span>
+      <span>Workflow automation</span>
+    </div>
+
+
+    <div class="bg-grid">
+
+      <!-- ACADEMIC COLUMN -->
+      <div class="bg-col reveal">
+        <div class="bg-col-label">Academic Experience</div>
+        <div class="tl">
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">2024 – Present</span>
+              <h4>MEng Geomatics Engineering</h4>
+              <span class="tl-org">University of Calgary</span>
+              <p>Graduate program spanning GIS, spatial databases, data mining, satellite positioning, digital engineering, Python, and geospatial visualization.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">ENGO645</span>
+              <h4>Spatiotemporal Analysis &amp; Hotspot Detection of Traffic Incidents (using KDE) in Calgary</h4>
+              <span class="tl-org">Spatial Databases &amp; Data Mining</span>
+              <p>Analyzed ~51K Calgary traffic incidents (2017–2024) using KDE, DBSCAN, HDBSCAN, temporal trend analysis, and spatial clustering workflows.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">ENGO641</span>
+              <h4>Spatial SQL &amp; Topological Relationship Analysis</h4>
+              <span class="tl-org">GIS Design &amp; Implementation</span>
+              <p>Built and queried PostGIS spatial databases using intersections, dissolves, spatial indexing, and topology operations on Calgary planning datasets.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">ENGO641</span>
+              <h4>Boundary Simplification — Ramer–Douglas–Peucker Algorithm</h4>
+              <span class="tl-org">Geospatial Python Development</span>
+              <p>Implemented RDP boundary simplification using GeoPandas, Shapely, NumPy, and Matplotlib — comparing original and simplified geometries across tolerance levels.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">ENGO664 / ENGG680</span>
+              <h4>GNSS Statistical Testing &amp; Kalman Filtering</h4>
+              <span class="tl-org">Technical Lab Projects</span>
+              <p>Processed GNSS datasets through variance estimation, residual analysis, stationarity testing, and Kalman Filter recursive estimation of gravitational acceleration.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">ENGG661</span>
+              <h4>Environmental GIS &amp; Spatial Interpolation</h4>
+              <span class="tl-org">GIS Applications</span>
+              <p>Snowfall interpolation, greenhouse gas mapping, sustainable transportation analysis, and earthquake event visualization using ArcGIS spatial analyst workflows.</p>
+            </div>
+          </div>
+
+          <div class="tl-item ai-workflow">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">Research &amp; Documentation Workflows</span>
+              <h4>Technical Writing, Debugging Support &amp; Design Ideation</h4>
+              <span class="tl-org">Independent / Academic / Creative Workflows</span>
+              <p>Used AI-assisted research, prompt engineering, Python debugging support, documentation workflows, design ideation, and technical writing refinement to structure analysis, troubleshoot code, improve reports, and communicate technical work more clearly.</p>
+            </div>
+          </div>
+
+        </div>
+</div>
+
+      <!-- PROFESSIONAL COLUMN -->
+      <div class="bg-col reveal">
+        <div class="bg-col-label">Professional Experience</div>
+        <div class="tl">
+
+          <div class="tl-item">
+            <div class="tl-dot tl-dot-accent"></div>
+            <div class="tl-body">
+              <span class="tl-time">May 2025 - Aug 2025</span>
+              <h4>GIS &amp; Geospatial Data Intern</h4>
+              <span class="tl-org">NorthGrid Spatial Analytics</span>
+              <span class="tl-location">Canada</span>
+              <p>Supported geodatabase maintenance, map production, QA/QC checks, and spatial analysis workflows. Prepared cartographic outputs and contributed to urban and environmental GIS analysis tasks.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot tl-dot-accent"></div>
+            <div class="tl-body">
+              <span class="tl-time">2022 - 2023</span>
+              <h4>Support Technician / GIS Assistant</h4>
+              <span class="tl-org">VICDANPEE Limited</span>
+              <span class="tl-location">Lagos, Nigeria</span>
+              <p>Supported technical documentation, GIS-adjacent workflows, project coordination, and spatial data organisation in a technical services environment.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">2021 - 2024</span>
+              <h4>Creative Director &amp; Brand Strategist</h4>
+              <span class="tl-org">7üNIVERSE / 7hrift.ng</span>
+              <span class="tl-location">Lagos, Nigeria</span>
+              <p>Founded and led a creative direction practice spanning visual design, digital campaigns, content strategy, and fashion storytelling across multiple ventures.</p>
+            </div>
+          </div>
+
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-body">
+              <span class="tl-time">Feb 2022 - Jul 2023</span>
+              <h4>Executive Administrator &amp; Social Media Manager</h4>
+              <span class="tl-org">CiaS International Modeling Agency</span>
+              <span class="tl-location">Lagos, Nigeria</span>
+              <p>Executive scheduling, communications, travel planning, social media strategy, and branded digital content for an international talent agency.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CREATIVE ─── -->
+<section class="section" id="creative">
+  <div class="container">
+    <div class="section-label reveal">Creative work</div>
+    <h2 class="section-title reveal">7üNIVERSE · 7hrift.ng · CiaS</h2>
+    <p class="section-sub reveal">Three ventures. One vision — design as a vehicle for culture, identity, and spatial storytelling.</p>
+
+    <div class="creative-row reveal">
+      <div class="creative-card">
+        <div class="cc-num">01</div>
+        <h4>7üNIVERSE</h4>
+        <p>Brand identity, visual direction, and creative strategy — the creative umbrella bridging fashion, technology, and storytelling.</p>
+      </div>
+      <div class="creative-card">
+        <div class="cc-num">02</div>
+        <h4>7hrift.ng</h4>
+        <p>Circular fashion brand. End-to-end brand language, digital presence, and community growth strategy built around intentional design.</p>
+      </div>
+      <div class="creative-card">
+        <div class="cc-num">03</div>
+        <h4>CiaS International</h4>
+        <p>Executive operations and social media for an international modeling agency — content-first approach to digital brand building.</p>
+      </div>
+    </div>
+
+    <div class="behance-row reveal">
+      <div class="behance-meta">
+        <div class="section-label" style="margin-bottom:10px">Graphic Design Portfolio</div>
+        <h3>Behance</h3>
+        <p>Branding, typography, layout design, and visual identity work curated on Behance.</p>
+        <a href="https://www.behance.net/gallery/213741811/Graphic-Design-Portfolio" target="_blank" rel="noreferrer" class="btn btn-primary" style="margin-top:20px">Open Behance ↗</a>
+      </div>
+      <div class="behance-embed">
+        <iframe
+          src="https://www.behance.net/embed/project/213741811?ilo0=1"
+          height="316" width="404"
+          allowfullscreen loading="lazy" frameborder="0"
+          allow="clipboard-write"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Chisom Behance Portfolio">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-inner reveal">
+      <div class="section-label">Get in touch</div>
+      <h2>Open to new opportunities.</h2>
+      <p>Available for geospatial analyst, GIS technician, and spatial data roles. Also open to creative collaboration.</p>
+      <div class="contact-actions">
+        <a href="mailto:victoronyeukwu@gmail.com" class="btn btn-primary">Send an Email</a>
+        <a href="https://www.linkedin.com/in/chisom-onyeukwu/" target="_blank" rel="noreferrer" class="btn btn-ghost">LinkedIn</a>
+        <a href="application-package/?packet=stantec" class="btn btn-ghost">Request Application Package</a>
+      </div>
+      <p class="materials-note">Application package available on request.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <span>© 2026 Chisom Victor Onyeukwu</span>
+    <span>Geomatics Engineering · University of Calgary</span>
+  </div>
+</footer>
+
+<div class="mobile-dock" aria-label="Quick actions">
+  <a href="#work">Work</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ─── PROJECT MODAL ─── -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Project details">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- ─── LIGHTBOX ─── -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+  <button class="lb-close" id="lbClose" aria-label="Close">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-nav lb-nav-prev" id="lbPrev" aria-label="Previous">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt=""/>
+  </div>
+  <button class="lb-nav lb-nav-next" id="lbNext" aria-label="Next">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- ─── DATA ─── -->
+<script>
+window.PROJECTS = [
+  {
+    id: "traffic",
+    tags: ["gis","python","data"],
+    cat: "GIS · Urban Analytics",
+    thumb: "assets/traffic_slides/slide-14.png",
+    title: "Spatiotemporal Analysis & Hotspot Detection of Traffic Incidents (using KDE) in Calgary",
+    subtitle: "Study window 2017–2024 · Calgary, AB",
+    desc: "A full urban-safety case study analysing ~51,000 Calgary traffic incidents. The pipeline covers temporal trend extraction, severity classification, K-Means/DBSCAN/HDBSCAN clustering, kernel density estimation hotspot mapping, highway analysis, and predictive-modelling exploration.",
+    tools: ["Python","JupyterLab","KDE","HDBSCAN","K-Means","DBSCAN","Pandas","Matplotlib"],
+    highlights: [
+      "~51K cleaned incidents processed end-to-end",
+      "Evening rush: 33.11% of all incidents",
+      "KDE + HDBSCAN revealed persistent spatial clusters",
+      "Full 19-slide presentation deck included"
+    ],
+    visuals: [
+      "assets/traffic_slides/slide-01.png","assets/traffic_slides/slide-02.png",
+      "assets/traffic_slides/slide-03.png","assets/traffic_slides/slide-04.png",
+      "assets/traffic_slides/slide-05.png","assets/traffic_slides/slide-06.png",
+      "assets/traffic_slides/slide-07.png","assets/traffic_slides/slide-08.png",
+      "assets/traffic_slides/slide-09.png","assets/traffic_slides/slide-10.png",
+      "assets/traffic_slides/slide-11.png","assets/traffic_slides/slide-12.png",
+      "assets/traffic_slides/slide-13.png","assets/traffic_slides/slide-14.png",
+      "assets/traffic_slides/slide-15.png","assets/traffic_slides/slide-16.png",
+      "assets/traffic_slides/slide-17.png","assets/traffic_slides/slide-18.png",
+      "assets/traffic_slides/slide-19.png"
+    ],
+    report: null
+  },
+  {
+    id: "postgis",
+    tags: ["gis","data"],
+    cat: "GIS · Spatial Databases",
+    thumb: "assets/visuals/postgis_report_preview.jpg",
+    title: "Spatial SQL & Topological Analysis in PostGIS",
+    subtitle: "Calgary urban planning datasets",
+    desc: "A spatial database project applying SQL and PostGIS to filter, index, dissolve, intersect, difference, and extract boundaries from Calgary urban datasets — demonstrating professional GIS technician and spatial database readiness.",
+    tools: ["SQL","PostGIS","GiST Indexes","ST_Union","ST_Intersection","ST_Difference","PostgreSQL"],
+    highlights: [
+      "Spatial schemas and GiST indexes for query performance",
+      "Topological analysis across communities, sectors, roads, and rivers",
+      "Full lab report PDF with annotated SQL and result maps"
+    ],
+    visuals: [
+      "assets/visuals/postgis_report_preview.jpg",
+      "assets/visuals/postgis_result_page_2.png",
+      "assets/visuals/postgis_result_page_3.png"
+    ],
+    report: "assets/reports/postgis_spatial_sql_full_report.pdf"
+  },
+  {
+    id: "rdp",
+    tags: ["gis","python"],
+    cat: "Geospatial Python · Algorithm Dev",
+    thumb: "assets/code_results/rdp_output_cell17_0.png",
+    title: "Boundary Simplification — Ramer–Douglas–Peucker",
+    subtitle: "ENGO 641 · Design and Implementation of GIS · University of Calgary",
+    desc: "A computational geometry project implementing the Ramer–Douglas–Peucker algorithm to simplify a Calgary boundary shapefile. GeoPandas and Shapely load and inspect geometries; the RDP algorithm is applied at multiple epsilon tolerances; original vs. simplified outputs are compared visually. The lab report (Lab 5) contains the cover page and full methodology write-up.",
+    tools: ["Python","GeoPandas","Shapely","NumPy","Matplotlib","RDP Algorithm"],
+    highlights: [
+      "Vertex count analysis and bounding box inspection",
+      "RDP simplification at multiple tolerance levels",
+      "Side-by-side original vs. simplified visual comparison",
+      "Lab 5 — ENGO 641, Dept. of Geomatics Engineering"
+    ],
+    visuals: [
+      "assets/code_results/rdp_code_result_1.png",
+      "assets/code_results/rdp_code_result_2.png",
+      "assets/code_results/rdp_code_result_3.png",
+      "assets/code_results/rdp_output_cell11_1.png",
+      "assets/code_results/rdp_output_cell17_0.png"
+    ],
+    report: "assets/reports/rdp_boundary_simplification_full_report.pdf",
+    reportNote: "This report contains the assignment cover page and full write-up for Lab 5 — ENGO 641."
+  },
+  {
+    id: "kalman",
+    tags: ["data","python"],
+    cat: "Data Analysis · Signal Processing",
+    thumb: "assets/visuals/kalman_report_preview.jpg",
+    title: "Stationarity Testing & Kalman Filter Estimation",
+    subtitle: "GNSS / engineering data analysis",
+    desc: "Python-based analysis testing GNSS residual stationarity (Run Test) and estimating gravitational acceleration using two Kalman Filter models — a constant-process model and a random-walk model. Includes full notebook code and recursive estimation result snapshots.",
+    tools: ["Python","NumPy","Matplotlib","Run Test","Kalman Filter","GNSS"],
+    highlights: [
+      "Stationarity testing on double-differenced GPS residuals",
+      "Constant-process and random-walk Kalman Filter models",
+      "Recursive estimation of gravitational acceleration",
+      "Full notebook code snapshots included"
+    ],
+    visuals: [
+      "assets/visuals/kalman_report_preview.jpg",
+      "assets/visuals/kalman_result_page_2.png",
+      "assets/visuals/kalman_result_page_3.png",
+      "assets/code_results/kalman_code_result_1.png",
+      "assets/code_results/kalman_code_result_2.png",
+      "assets/code_results/kalman_output_cell3_1.png",
+      "assets/code_results/kalman_output_cell5_1.png",
+      "assets/code_results/kalman_output_cell5_2.png",
+      "assets/code_results/kalman_output_cell5_3.png",
+      "assets/code_results/kalman_output_cell5_4.png"
+    ],
+    report: "assets/reports/kalman_filter_full_report.pdf"
+  },
+  {
+    id: "stats",
+    tags: ["data","python"],
+    cat: "Statistical Analysis · QC",
+    thumb: "assets/visuals/stats_report_preview.jpg",
+    title: "Statistical Testing & Variance Component Estimation",
+    subtitle: "GNSS / survey quality control",
+    desc: "A statistical testing project applying normality testing, global variance-factor testing, local data snooping, blunder detection, and variance component estimation to GNSS survey data — focused on rigorous quality control and code-output validation.",
+    tools: ["Python","SciPy","NumPy","Matplotlib","Least Squares","Chi-Squared Test"],
+    highlights: [
+      "Normality test on GPS range noise data",
+      "Global variance-factor and local data snooping tests",
+      "Blunder detection and correlation analysis",
+      "Full notebook code + 11 result snapshots"
+    ],
+    visuals: [
+      "assets/visuals/stats_report_preview.jpg",
+      "assets/visuals/stats_result_page_2.png",
+      "assets/visuals/stats_result_page_4.png",
+      "assets/code_results/stats_code_result_1.png",
+      "assets/code_results/stats_code_result_2.png",
+      "assets/code_results/stats_code_result_3.png",
+      "assets/code_results/stats_output_cell1_1.png",
+      "assets/code_results/stats_output_cell1_2.png",
+      "assets/code_results/stats_output_cell7_1.png",
+      "assets/code_results/stats_output_cell17_1.png",
+      "assets/code_results/stats_output_cell24_1.png",
+      "assets/code_results/stats_output_cell31_0.png"
+    ],
+    report: "assets/reports/statistical_testing_full_report.pdf"
+  },
+  {
+    id: "envgis",
+    tags: ["gis"],
+    cat: "Environmental GIS",
+    thumb: "assets/visuals/sustainable_transport_ghg_layout.jpg",
+    title: "Sustainable Transport & GHG Emissions Mapping",
+    subtitle: "New Brunswick / national Canadian GIS layers",
+    desc: "Environmental GIS mapping project combining national provinces/territories boundaries, sustainable transportation commuter proportions, and greenhouse-gas emissions point data from large industrial facilities into a coherent multi-layer map layout.",
+    tools: ["ArcGIS Pro","Thematic Mapping","Projection Management","Cartographic Design"],
+    highlights: [
+      "WGS 1984 Web Mercator and NAD 1983 Canada Atlas Lambert",
+      "Combined polygon and point/polygon thematic layers",
+      "Professional cartographic layout for environmental communication"
+    ],
+    visuals: [
+      "assets/visuals/sustainable_transport_ghg_layout.jpg"
+    ],
+    report: "assets/reports/sustainable_transport_ghg_full_report.pdf"
+  },
+  {
+    id: "creative",
+    tags: ["creative"],
+    cat: "Creative Strategy · Branding",
+    thumb: "assets/visuals/behance_preview_card.png",
+    title: "7üNIVERSE / 7hrift.ng / CiaS — Creative Direction",
+    subtitle: "Brand identity · social media · design · operations",
+    desc: "A combined creative portfolio spanning fashion brand identity (7hrift.ng), umbrella creative direction (7üNIVERSE), and executive-level operations for an international modeling agency (CiaS). This background informs the visual communication quality across all GIS and data projects.",
+    tools: ["Brand Strategy","Visual Identity","Adobe Suite","Canva","Social Media","Content Strategy"],
+    highlights: [
+      "Cohesive brand systems across three ventures",
+      "Full graphic design archive on Behance",
+      "Design thinking applied to geospatial visualisation"
+    ],
+    visuals: [
+      "assets/visuals/behance_preview_card.png"
+    ],
+    report: null
+  }
+];
+
+window.GALLERIES = {
+  slides: [
+    "assets/traffic_slides/slide-01.png","assets/traffic_slides/slide-02.png",
+    "assets/traffic_slides/slide-03.png","assets/traffic_slides/slide-04.png",
+    "assets/traffic_slides/slide-05.png","assets/traffic_slides/slide-06.png",
+    "assets/traffic_slides/slide-07.png","assets/traffic_slides/slide-08.png",
+    "assets/traffic_slides/slide-09.png","assets/traffic_slides/slide-10.png",
+    "assets/traffic_slides/slide-11.png","assets/traffic_slides/slide-12.png",
+    "assets/traffic_slides/slide-13.png","assets/traffic_slides/slide-14.png",
+    "assets/traffic_slides/slide-15.png","assets/traffic_slides/slide-16.png",
+    "assets/traffic_slides/slide-17.png","assets/traffic_slides/slide-18.png",
+    "assets/traffic_slides/slide-19.png"
+  ],
+  maps: [
+    "assets/visuals/postgis_report_preview.jpg",
+    "assets/visuals/postgis_result_page_2.png",
+    "assets/visuals/postgis_result_page_3.png",
+    "assets/visuals/kalman_report_preview.jpg",
+    "assets/visuals/kalman_result_page_2.png",
+    "assets/visuals/kalman_result_page_3.png",
+    "assets/visuals/stats_report_preview.jpg",
+    "assets/visuals/stats_result_page_2.png",
+    "assets/visuals/stats_result_page_4.png",
+    "assets/visuals/rdp_report_preview.jpg",
+    "assets/visuals/sustainable_transport_ghg_layout.jpg"
+  ],
+  code: [
+    "assets/code_results/rdp_code_result_1.png",
+    "assets/code_results/rdp_code_result_2.png",
+    "assets/code_results/rdp_code_result_3.png",
+    "assets/code_results/rdp_output_cell11_1.png",
+    "assets/code_results/rdp_output_cell17_0.png",
+    "assets/code_results/kalman_code_result_1.png",
+    "assets/code_results/kalman_code_result_2.png",
+    "assets/code_results/kalman_output_cell3_1.png",
+    "assets/code_results/kalman_output_cell5_1.png",
+    "assets/code_results/kalman_output_cell5_2.png",
+    "assets/code_results/kalman_output_cell5_3.png",
+    "assets/code_results/kalman_output_cell5_4.png",
+    "assets/code_results/stats_code_result_1.png",
+    "assets/code_results/stats_code_result_2.png",
+    "assets/code_results/stats_code_result_3.png",
+    "assets/code_results/stats_output_cell1_1.png",
+    "assets/code_results/stats_output_cell1_2.png",
+    "assets/code_results/stats_output_cell7_1.png",
+    "assets/code_results/stats_output_cell17_1.png",
+    "assets/code_results/stats_output_cell24_1.png",
+    "assets/code_results/stats_output_cell31_0.png"
+  ]
+};
+</script>
+<script src="script.js"></script>
+</body>
+</html>
