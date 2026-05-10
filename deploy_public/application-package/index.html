@@ -278,12 +278,12 @@
       </p>
 
       <div class="link-box">
-        <code id="packetLink">/applications/global-engineering-testing/</code>
+        <code id="packetLink">/applications/get/</code>
         <button class="btn" id="copyBtn" type="button">Copy Packet Link</button>
       </div>
 
       <div class="actions">
-        <a class="btn primary" id="openPacketBtn" href="../applications/global-engineering-testing/">Open Global Engineering and Testing Packet</a>
+        <a class="btn primary" id="openPacketBtn" href="../applications/get/">Open Global Engineering and Testing Packet</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -359,15 +359,15 @@
         path: '/applications/stantec/',
         openHref: '../applications/stantec/'
       },
-      global: {
+      get: {
         label: 'Global Engineering and Testing Packet',
         title: 'Global Engineering and Testing application packet',
-        path: '/applications/global-engineering-testing/',
-        openHref: '../applications/global-engineering-testing/'
+        path: '/applications/get/',
+        openHref: '../applications/get/'
       }
     };
     const requestedPacket = new URLSearchParams(window.location.search).get('packet');
-    const activePacket = packets[requestedPacket] || packets.global;
+    const activePacket = packets[requestedPacket] || packets.get;
     let packetPath = activePacket.path;
     const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
