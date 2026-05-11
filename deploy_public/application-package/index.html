@@ -364,10 +364,16 @@
         title: 'Global Engineering and Testing application packet',
         path: '/applications/get/',
         openHref: '../applications/get/'
+      },
+      esri: {
+        label: 'Esri Canada Packet',
+        title: 'Esri Canada application packet',
+        path: '/applications/esri/',
+        openHref: '../applications/esri/'
       }
     };
     const requestedPacket = new URLSearchParams(window.location.search).get('packet');
-    const activePacket = packets[requestedPacket] || packets.get;
+    const activePacket = packets[requestedPacket] || packets.esri;
     let packetPath = activePacket.path;
     const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
