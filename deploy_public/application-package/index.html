@@ -278,12 +278,12 @@
       </p>
 
       <div class="link-box">
-        <code id="packetLink">/applications/get/</code>
+        <code id="packetLink">/applications/deloitte/</code>
         <button class="btn" id="copyBtn" type="button">Copy Packet Link</button>
       </div>
 
       <div class="actions">
-        <a class="btn primary" id="openPacketBtn" href="../applications/get/">Open Global Engineering and Testing Packet</a>
+        <a class="btn primary" id="openPacketBtn" href="../applications/deloitte/">Open Deloitte Packet</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -370,10 +370,16 @@
         title: 'Esri Canada application packet',
         path: '/applications/esri/',
         openHref: '../applications/esri/'
+      },
+      deloitte: {
+        label: 'Deloitte Packet',
+        title: 'Deloitte application packet',
+        path: '/applications/deloitte/',
+        openHref: '../applications/deloitte/'
       }
     };
     const requestedPacket = new URLSearchParams(window.location.search).get('packet');
-    const activePacket = packets[requestedPacket] || packets.esri;
+    const activePacket = packets[requestedPacket] || packets.deloitte;
     let packetPath = activePacket.path;
     const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
