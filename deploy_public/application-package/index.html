@@ -278,12 +278,12 @@
       </p>
 
       <div class="link-box">
-        <code id="packetLink">/applications/super/</code>
+        <code id="packetLink">/applications/suncor/</code>
         <button class="btn" id="copyBtn" type="button">Copy Packet Link</button>
       </div>
 
       <div class="actions">
-        <a class="btn primary" id="openPacketBtn" href="../applications/super/">Open Super.com Packet</a>
+        <a class="btn primary" id="openPacketBtn" href="../applications/suncor/">Open Suncor Packet</a>
         <a class="btn" href="mailto:victoronyeukwu@gmail.com?subject=Application%20Package%20Request&body=Hi%20Chisom%2C%0A%0AI%27d%20like%20to%20request%20your%20application%20package.%0A%0AThanks%2C">Request Another Package</a>
       </div>
       <div class="status" id="copyStatus" aria-live="polite"></div>
@@ -382,10 +382,16 @@
         title: 'Super.com application packet',
         path: '/applications/super/',
         openHref: '../applications/super/'
+      },
+      suncor: {
+        label: 'Suncor Packet',
+        title: 'Suncor application packet',
+        path: '/applications/suncor/',
+        openHref: '../applications/suncor/'
       }
     };
     const requestedPacket = new URLSearchParams(window.location.search).get('packet');
-    const activePacket = packets[requestedPacket] || packets.super;
+    const activePacket = packets[requestedPacket] || packets.suncor;
     let packetPath = activePacket.path;
     const titleEl = document.getElementById('packetTitle');
     const linkEl = document.getElementById('packetLink');
